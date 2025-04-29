@@ -7,8 +7,12 @@ out/
 .idea
 java-test.iml
 ### Eclipse ###
-*.java
-!src/**/*.java
+
+# Игнорировать все файлы
+*
+
+# Не игнорировать .java файлы
+!*.java
 
 *.iml
 .apt_generated
@@ -19,8 +23,7 @@ java-test.iml
 .springBeans
 .sts4-cache
 bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
+
 
 ### NetBeans ###
 /nbproject/private/
@@ -59,6 +62,3 @@ Thumbs.db
 *.project
 .settings/
 bin/
-
-!**/src/main/**/bin/
-!**/src/test/**/bin/
