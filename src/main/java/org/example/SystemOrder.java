@@ -3,13 +3,13 @@ package org.example;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrderSystem {
+public class SystemOrder {
     private static int orderIdCounter = 1;
     private int orderId;
     private List<String> items;
     private double totalPrice;
 
-    public OrderSystem() {
+    public SystemOrder() {
         this.orderId = orderIdCounter++;
         this.items = new ArrayList<>();
         this.totalPrice = 0;
@@ -27,13 +27,5 @@ public class OrderSystem {
         }
         details.append("Общая стоимость: ").append(totalPrice);
         return details.toString();
-    }
-
-    public List<String> getItems() {
-        return items;
-    }
-
-    public double getTotalPrice() {
-        return totalPrice;
     }
 }

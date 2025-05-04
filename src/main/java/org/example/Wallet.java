@@ -1,4 +1,4 @@
-package org.example.wallet;
+package org.example;
 
 public class Wallet {
     private String owner;
@@ -21,17 +21,17 @@ public class Wallet {
         if (money >= 0) {
             this.money = money;
         } else {
-            throw new IllegalArgumentException("Сумма не может быть отрицательной");
+            System.out.println("Деньги не могут быть отрицательными!");
         }
     }
 
     public void spend(double amount) {
         if (amount <= 0) {
-            throw new IllegalArgumentException("Сумма траты должна быть положительной");
+            System.out.println("Сумма траты должна быть больше нуля!");
+        } else if (amount > money) {
+            System.out.println("Недостаточно денег!");
+        } else {
+            money -= amount;
         }
-        if (amount > money) {
-            throw new IllegalArgumentException("Недостаточно средств");
-        }
-        money -= amount;
     }
 }

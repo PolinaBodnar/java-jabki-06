@@ -1,27 +1,25 @@
-import org.example.guessnumber.GuessNumber;
-import org.junit.jupiter.api.Test;
+package org.example;
 
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GuessNumberTest {
+class GuessNumberTest {
 
     @Test
-    public void testGuessNumber() {
-        GuessNumber game = new GuessNumber();
-        int secretNumber = game.checkGuess(50);  // Используем число 50, например.
-        String result = game.checkGuess(secretNumber);
-        assertEquals("Угадал", result);
+    void testGuessLower() {
+        GuessNumber game = new GuessNumber(50);
+        assertEquals("Больше", game.checkGuess(30));
     }
 
     @Test
-    public void testGuessTooHigh() {
-        GuessNumber game = new GuessNumber();
-        assertEquals("Меньше", game.checkGuess(150));
+    void testGuessHigher() {
+        GuessNumber game = new GuessNumber(50);
+        assertEquals("Меньше", game.checkGuess(70));
     }
 
     @Test
-    public void testGuessTooLow() {
-        GuessNumber game = new GuessNumber();
-        assertEquals("Больше", game.checkGuess(10));
+    void testGuessCorrect() {
+        GuessNumber game = new GuessNumber(50);
+        assertEquals("Угадал!", game.checkGuess(50));
     }
 }

@@ -1,33 +1,35 @@
-import org.example.wallet.Wallet;
-import org.junit.jupiter.api.Test;
+package org.example;
 
+import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class WalletTest {
+class WalletTest {
 
     @Test
-    public void testWalletCreation() {
-        Wallet wallet = new Wallet("Иван", 100);
-        assertEquals("Иван", wallet.getOwner());
-        assertEquals(100, wallet.getMoney());
-    }
-
-    @Test
-    public void testSpendMoney() {
+    void testSpend() {
         Wallet wallet = new Wallet("Иван", 100);
         wallet.spend(50);
         assertEquals(50, wallet.getMoney());
     }
 
     @Test
-    public void testSpendMoreThanAvailable() {
+    void testSpendMoreThanBalance() {
         Wallet wallet = new Wallet("Иван", 100);
-        assertThrows(IllegalArgumentException.class, () -> wallet.spend(150));
+        wallet.spend(150);
+        assertEquals(100, wallet.getMoney());
     }
 
     @Test
-    public void testNegativeAmount() {
+    void testSetMoney() {
         Wallet wallet = new Wallet("Иван", 100);
-        assertThrows(IllegalArgumentException.class, () -> wallet.spend(-10));
+        wallet.setMoney(200);
+        assertEquals(200, wallet.getMoney());
+    }
+
+    @Test
+    void testSetNegativeMoney() {
+        Wallet wallet = new Wallet("Иван", 100);
+        wallet.setMoney(-50);
+        assertEquals(100, wallet.getMoney());
     }
 }
