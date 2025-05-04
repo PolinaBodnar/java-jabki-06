@@ -12,7 +12,7 @@ public class SystemOrder {
     public SystemOrder() {
         this.orderId = orderIdCounter++;
         this.items = new ArrayList<>();
-        this.totalPrice = 0;
+        this.totalPrice = 0.0;
     }
 
     public void addItem(String item, double price) {

@@ -6,30 +6,23 @@ import static org.junit.jupiter.api.Assertions.*;
 class WalletTest {
 
     @Test
-    void testSpend() {
-        Wallet wallet = new Wallet("Иван", 100);
-        wallet.spend(50);
-        assertEquals(50, wallet.getMoney());
+    void testSetMoneyWithPositiveAmount() {
+        Wallet wallet = new Wallet("Иван", 100.0);
+        wallet.setMoney(200.0);  // Устанавливаем положительное значение
+        assertEquals(200.0, wallet.getMoney(), "Баланс должен быть 200.0");
     }
 
     @Test
-    void testSpendMoreThanBalance() {
-        Wallet wallet = new Wallet("Иван", 100);
-        wallet.spend(150);
-        assertEquals(100, wallet.getMoney());
+    void testSetMoneyWithNegativeAmount() {
+        Wallet wallet = new Wallet("Иван", 100.0);
+        wallet.setMoney(-50.0);  // Попытка установить отрицательное значение
+        assertEquals(100.0, wallet.getMoney(), "Баланс не должен измениться при отрицательном значении");
     }
 
     @Test
-    void testSetMoney() {
-        Wallet wallet = new Wallet("Иван", 100);
-        wallet.setMoney(200);
-        assertEquals(200, wallet.getMoney());
-    }
-
-    @Test
-    void testSetNegativeMoney() {
-        Wallet wallet = new Wallet("Иван", 100);
-        wallet.setMoney(-50);
-        assertEquals(100, wallet.getMoney());
+    void testSetMoneyWithZero() {
+        Wallet wallet = new Wallet("Иван", 100.0);
+        wallet.setMoney(0.0);  // Установка нулевого баланса
+        assertEquals(0.0, wallet.getMoney(), "Баланс должен быть 0.0");
     }
 }

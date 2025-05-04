@@ -8,8 +8,8 @@ class SystemOrderTest {
     @Test
     void testAddItemIncreasesTotalPrice() {
         SystemOrder order = new SystemOrder();
-        order.addItem("Товар 1", 100);
-        order.addItem("Товар 2", 150);
+        order.addItem("Товар 1", 100.0);
+        order.addItem("Товар 2", 150.0);
 
         String details = order.getOrderDetails();
         assertTrue(details.contains("Товар 1"));

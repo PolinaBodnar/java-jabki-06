@@ -17,6 +17,7 @@ public class Wallet {
         return money;
     }
 
+    // Метод setMoney с новой проверкой
     public void setMoney(double money) {
         if (money >= 0) {
             this.money = money;
