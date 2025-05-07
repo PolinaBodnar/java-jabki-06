@@ -29,7 +29,7 @@ public class Main {
         System.out.println(tv);
 
         // Пример с заказом
-        SystemOrder order = new SystemOrder();
+        Order order = new Order();
         order.addItem("Товар 1", 200);
         order.addItem("Товар 2", 150);
         System.out.println(order.getOrderDetails());

@@ -3,11 +3,11 @@ package org.example;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class SystemOrderTest {
+class OrderTest {
 
     @Test
     void testAddItemIncreasesTotalPrice() {
-        SystemOrder order = new SystemOrder();
+        Order order = new Order();
         order.addItem("Товар 1", 100.0);
         order.addItem("Товар 2", 150.0);
 
@@ -19,8 +19,8 @@ class SystemOrderTest {
 
     @Test
     void testUniqueOrderId() {
-        SystemOrder order1 = new SystemOrder();
-        SystemOrder order2 = new SystemOrder();
+        Order order1 = new Order();
+        Order order2 = new Order();
         assertNotEquals(order1.getOrderDetails(), order2.getOrderDetails());
     }
 }

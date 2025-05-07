@@ -10,7 +10,7 @@
 .idea/
 .vscode/
 out/
-
+pom.xml
 # OS / system
 .DS_Store
 Thumbs.db
